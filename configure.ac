@@ -160,8 +160,8 @@ AM_CONDITIONAL([HAVE_TLS], [test "x$enable_tls" = xyes])
 
 if test "x$enable_tls" = "xyes"; then
     AC_DEFINE(HAVE_TLS)
-    AC_CHECK_LIB([ssl], [SSL_ctrl ], [],
-        AC_MSG_ERROR([libssl not found; install OpenSSL]))
+    AC_CHECK_LIB([ssl], [SSL_ctrl], [],
+        AC_MSG_ERROR([libssl not found; install OpenSSL], [-lcrypto]))
     AC_CHECK_LIB([crypto], [BIO_read], [],
         AC_MSG_ERROR([libcrypto not found; install OpenSSL]))
 fi
